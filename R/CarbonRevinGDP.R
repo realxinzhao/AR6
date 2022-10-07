@@ -12,6 +12,8 @@ require(scales)
 # The original data was too large
 readRDS("data/AR6/RDS/AR6_short.rds") -> AR6_short
 
+AR6_short %>% distinct(Variable)
+
 # Gather, clean, fill, and join ----
 AR6_short %>%
   filter(Variable %in% Var) %>%
