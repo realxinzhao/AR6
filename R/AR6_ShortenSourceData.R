@@ -32,6 +32,12 @@ Var <- c("Emissions|CO2", "Price|Carbon", "GDP|MER",
 
 #
 AR6 %>%
-  filter(Variable %in% Var) -> AR6_short
+  filter(Variable %in% Var) %>%
+  mutate(Pathway = interaction(Model, Scenario)) %>%
+  # filter pathways passed vetting and received a category
+  filter(Pathway %in% c(MS_Category %>% distinct(interaction(Model, Scenario)) %>% pull) ) %>%
+  # Join category identifer
+  left_join(MS_Category, by = c("Model", "Scenario")) ->
+  AR6_short
 
 saveRDS(AR6_short, "data/AR6/RDS/AR6_short.rds")

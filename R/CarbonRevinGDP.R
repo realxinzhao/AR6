@@ -16,12 +16,6 @@ AR6_short %>% distinct(Variable)
 
 # Gather, clean, fill, and join ----
 AR6_short %>%
-  filter(Variable %in% Var) %>%
-  mutate(Pathway = interaction(Model, Scenario)) %>%
-  # filter pathways passed vetting and received a category
-  filter(Pathway %in% c(MS_Category %>% distinct(interaction(Model, Scenario)) %>% pull) ) %>%
-  # Join category identifer
-  left_join(MS_Category, by = c("Model", "Scenario")) %>%
   # gather year
   gcamdata::gather_years() %>%
   # Linear interpolation to annual
@@ -41,8 +35,10 @@ AR6_vetted %>%
   # Aggregate all Carbon Sequestration|* variables
   mutate(Variable = if_else(grepl("Carbon Seq", Variable),
                             "CarbonSequestration", Variable)) %>%
+  # make sure Carbon Sequestration was postively reported
+  mutate(value = if_else(Variable == "CarbonSequestration", abs(value), value)) %>%
   group_by_at(vars(-value)) %>% filter(!is.na(value)) %>%
-  summarise(value = sum(abs(value)), .groups = "drop") %>%
+  summarise(value = sum(value), .groups = "drop") %>%
   select(-Unit) %>%
   # spread variable
   spread(Variable, value) %>%
@@ -60,7 +56,7 @@ AR6_vetted %>% distinct(Variable, Unit)
 AR6_vetted_clean %>%
   mutate(
   # Carbon tax rev.  adjust unit to billion $
-  CT_rev = `Price|Carbon`, `Emissions|CO2` /1000,
+  CT_rev = `Price|Carbon` * `Emissions|CO2` /1000,
   # Carbon sequestration value adjust unit to billion $
   CCS_rev = `Price|Carbon` * CarbonSequestration /1000,
   # Ratios
@@ -109,11 +105,28 @@ AR6_vetted_CarbonRev %>%
   labs(x = "Year", y = "Share") +
   theme_bw() + theme0 +
   labs(caption = c(
-    "\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Emissions|CO2\n@realxinzhao"),
+    "\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Emissions|CO2\nGithub: realxinzhao/AR6"),
     title = "Share of carbon tax revenue in GDP in IPCC AR6 pathways",
-    subtitle = "565 C1-C4 (< 2C) included and model version identifier simplified.") ->
+    subtitle = "565 C1-C4 (< 2C) included and model version identifier omitted") ->
   p
 p %>% Write_png("CarbonRevInGDP", h = 4300, w = 6000, r = 600)
+
+
+# *Fig. carbon sequestration value in GDP (no POLES) ----
+# remove the 64 POLES pathways
+AR6_vetted_CarbonRev %>% filter(Model != "POLES") %>%
+  ggplot() + facet_wrap(~Category, scales = "free_y") +
+  geom_line(aes(x = year, y = CTrevOverGDP, group = Pathway, color = Model), size = 1, alpha = 0.8) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(x = "Year", y = "Share") +
+  theme_bw() + theme0 +
+  labs(caption = c(
+    "\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Emissions|CO2\nGithub: realxinzhao/AR6"),
+    title = "Share of carbon tax revenue in GDP in IPCC AR6 pathways",
+    subtitle = "501 C1-C4 (< 2C) included (POLES removed) and model version identifier omitted") ->
+  p
+p %>% Write_png("CarbonRevInGDP_noPOLES", h = 4300, w = 6000, r = 600)
+
 
 
 
@@ -124,9 +137,9 @@ AR6_vetted_CarbonRev %>%
   scale_y_continuous(labels = scales::percent) +
   labs(x = "Year", y = "Share") +
   theme_bw() + theme0 +
-  labs(caption = c("\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Carbon Sequestration|X (first level)\n@realxinzhao"),
+  labs(caption = c("\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Carbon Sequestration|X (first level)\nGithub: realxinzhao/AR6"),
        title = "Share of carbon sequestration value in GDP in IPCC AR6 pathways",
-       subtitle = "565 C1-C4 (< 2C) included and model version identifier simplified.") ->
+       subtitle = "565 C1-C4 (< 2C) included and model version identifier omitted") ->
   p
 
 p %>% Write_png("CarbonCSInGDP", h = 4300, w = 6000, r = 600)
@@ -142,9 +155,9 @@ AR6_vetted_CarbonRev %>% filter(Model != "POLES") %>%
   scale_y_continuous(labels = scales::percent) +
   labs(x = "Year", y = "Share") +
   theme_bw() + theme0 +
-  labs(caption = c("\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Carbon Sequestration|X (first level)\n@realxinzhao"),
+  labs(caption = c("\nData source: IPCC AR6 Scenario Database \nVariables: Price|Carbon, GDP|MER, and Carbon Sequestration|X (first level)\nGithub: realxinzhao/AR6"),
        title = "Share of carbon sequestration value in GDP in IPCC AR6 pathways",
-       subtitle = "501 C1-C4 (< 2C) included (POLES removed) and model version identifier simplified.") ->
+       subtitle = "501 C1-C4 (< 2C) included (POLES removed) and model version identifier omitted") ->
   p
 
-p %>% Write_png("CarbonCSInGDP1", h = 4300, w = 6000, r = 600)
+p %>% Write_png("CarbonCSInGDP_noPOLES", h = 4300, w = 6000, r = 600)
