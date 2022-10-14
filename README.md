@@ -8,4 +8,6 @@ or my dropbox (https://www.dropbox.com/sh/223pixhu22uq4d2/AACD25bnA-ad6dIMl2kHqB
 
 ![Image](output/CarbonRevInGDP.png)
 
-![Image](output/CarbonCSInGDP1.png)
+![Image](output/CarbonRevInGDP_noPOLES.png)
+
+![Image](output/CarbonCSInGDP_noPOLES.png)
