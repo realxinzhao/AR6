@@ -111,6 +111,20 @@ AR6_vetted_CarbonRev %>%
   p
 p %>% Write_png("CarbonRevInGDP", h = 4300, w = 6000, r = 600)
 
+AR6_vetted_CarbonRev %>% filter(year == 2100) %>%
+  ggplot(aes(x = CTrevOverGDP)) +
+  geom_histogram(binwidth = 0.05, colour="black", fill="red", alpha = 0.5)+
+  scale_x_continuous(labels = scales::percent) +
+  labs(x = "Share of carbon tax revenue in GDP", y = "Count") +
+  theme_bw() + theme0 +
+  labs(caption = c(
+    "\nData source: IPCC AR6 Scenario Database \nGithub: realxinzhao/AR6"),
+    title = "Histogram of 2100 share of carbon tax revenue in GDP in IPCC AR6 pathways",
+    subtitle = "Obs. = 565, mean = -5.5%, Q50 (median) = -0.6%, Q75 = -3.5%") ->
+  p
+p %>% Write_png("CarbonRevInGDP_hist", h = 4300, w = 6000, r = 600)
+
+
 
 # *Fig. carbon sequestration value in GDP (no POLES) ----
 # remove the 64 POLES pathways
