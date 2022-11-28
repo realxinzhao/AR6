@@ -90,7 +90,7 @@ theme0 <- theme(
 )
 
 ## func export fig ----
-outdir <- "output/"
+outdir <- "CarbonRevinGDP/output/"
 Write_png <- function(.plot, name, w = 9000, h = 4500, r = 600){
   png(paste0(outdir,name,".png"), width = w, height = h, res = r)
   print(.plot)

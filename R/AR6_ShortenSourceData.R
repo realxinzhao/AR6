@@ -1,4 +1,5 @@
-
+library(dplyr)
+require(readr, readxl)    # Load data
 
 ## Please download data from  https://data.ene.iiasa.ac.at/ar6/#/workspaces
 # or from Xin' dropbox:
@@ -12,8 +13,6 @@
 #
 AR6 <- readr::read_csv("data/AR6/1648976687084-AR6_Scenarios_Database_World_v1.0/AR6_Scenarios_Database_World_v1.0.CSV")
 
-require(readr, readxl)    # Load data
-
 
 ## Load C1-C8 category from meta----
 MS_Category <- readxl::read_excel("data/AR6/1648976687084-AR6_Scenarios_Database_World_v1.0/AR6_Scenarios_Database_metadata_indicators_v1.0.xlsx",
@@ -22,13 +21,25 @@ MS_Category <- readxl::read_excel("data/AR6/1648976687084-AR6_Scenarios_Database
 
 
 ## Variable interested ----
-Var <- c("Emissions|CO2", "Price|Carbon", "GDP|MER",
+Var <- c("Emissions|CO2",
+         "Price|Carbon",
+         "GDP|MER",
+         "GDP|PPP",
          "Carbon Sequestration|CCS",
          "Carbon Sequestration|Direct Air Capture",
          "Carbon Sequestration|Enhanced Weathering",
          "Carbon Sequestration|Feedstocks",
          "Carbon Sequestration|Land Use",
-         "Carbon Sequestration|Other")
+         "Carbon Sequestration|Other",
+
+         "Investment",
+         "Investment|Clean Energy",
+         "Investment|Energy Efficiency",
+         "Investment|Energy Supply",
+         "Capital Stock",
+         "Capital Formation",
+         "Labour Supply"
+         )
 
 #
 AR6 %>%
