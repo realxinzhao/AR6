@@ -6,8 +6,8 @@ It calculates and visualizes carbon tax revenues / GDP and carbon sequestration 
 Note that the source data was too large (>400Mb) for github. A shortened RDS file including key variables is saved. So the script (`R/CarbonRevinGDP.R`) reads that data. However, if one needs source data, please download if from the IPCC AR6 Scenario Database https://data.ene.iiasa.ac.at/ar6/#/workspaces
 or my dropbox (https://www.dropbox.com/sh/223pixhu22uq4d2/AACD25bnA-ad6dIMl2kHqB8oa?dl=0) and store it in `data/AR6/`. And run `R/AR6_ShortenSourceData.R`.
 
-![Image](output/CarbonRevInGDP.png)
+![Image](output/CarbonRevinGDP/CarbonRevInGDP.png)
 
-![Image](output/CarbonRevInGDP_noPOLES.png)
+![Image](output/CarbonRevinGDP/CarbonRevInGDP_noPOLES.png)
 
-![Image](output/CarbonCSInGDP_noPOLES.png)
+![Image](output/CarbonRevinGDP/CarbonCSInGDP_noPOLES.png)
