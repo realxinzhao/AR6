@@ -1,0 +1,105 @@
+﻿VariableL1,Unit,VarGroup
+AR6 climate diagnostics,W/m^2,Emissions & Climate
+AR6 climate diagnostics,Mt CO2-equiv/yr,Emissions & Climate
+AR6 climate diagnostics,dimensionless,Emissions & Climate
+AR6 climate diagnostics,Mt CH4/yr,Emissions & Climate
+AR6 climate diagnostics,Mt CO2/yr,Emissions & Climate
+AR6 climate diagnostics,kt N2O/yr,Emissions & Climate
+AR6 climate diagnostics,K,Emissions & Climate
+Concentration,ppb,Emissions & Climate
+Concentration,ppm,Emissions & Climate
+Forcing,W/m2,Emissions & Climate
+Temperature,°C,Emissions & Climate
+Emissions,Mt BC/yr,Emissions & Climate
+Emissions,Mt CH4/yr,Emissions & Climate
+Emissions,Mt CO/yr,Emissions & Climate
+Emissions,Mt CO2/yr,Emissions & Climate
+Emissions,Mt CO2-equiv/yr,Emissions & Climate
+Emissions,kt HFC125/yr,Emissions & Climate
+Emissions,kt HFC134a/yr,Emissions & Climate
+Emissions,kt HFC143a/yr,Emissions & Climate
+Emissions,kt HFC227ea/yr,Emissions & Climate
+Emissions,kt HFC23/yr,Emissions & Climate
+Emissions,kt HFC32/yr,Emissions & Climate
+Emissions,kt HFC43-10/yr,Emissions & Climate
+Emissions,kt N2O/yr,Emissions & Climate
+Emissions,Mt NH3/yr,Emissions & Climate
+Emissions,Mt NO2/yr,Emissions & Climate
+Emissions,Mt OC/yr,Emissions & Climate
+Emissions,kt CF4-equiv/yr,Emissions & Climate
+Emissions,kt SF6/yr,Emissions & Climate
+Emissions,Mt SO2/yr,Emissions & Climate
+Emissions,Mt VOC/yr,Emissions & Climate
+Emissions,Mt PM2.5,Emissions & Climate
+Emissions,kt HFC134a-equiv/yr,Emissions & Climate
+Emissions,kt HFC245fa/yr,Emissions & Climate
+Emissions,kt C2F6/yr,Emissions & Climate
+Emissions,kt C6F14/yr,Emissions & Climate
+Emissions,kt CF4/yr,Emissions & Climate
+Carbon Sequestration,Mt CO2/yr,Emissions & Climate
+Carbon Utilization,Mt CO2/yr,Emissions & Climate
+Carbon Intensity,Mt CO2-equiv/Mt,Emissions & Climate
+Capacity,GW,Energy
+Capacity,GWh,Energy
+Capacity Additions,GW/yr,Energy
+Capacity Additions,GW,Energy
+Capacity Additions,GWh/yr,Energy
+Cumulative Capacity,GW,Energy
+Energy Service,bn tkm/yr,Energy
+Energy Service,bn pkm/yr,Energy
+Energy Service,bn m2/yr,Energy
+Energy Service,bn vkm/yr,Energy
+Final Energy,EJ/yr,Energy
+Final Energy (excl. feedstocks),EJ/yr,Energy
+Lifetime,years,Energy
+Primary Energy,EJ/yr,Energy
+Secondary Energy,EJ/yr,Energy
+Trade,EJ/yr,Energy
+Efficiency,%,Energy
+Capital Cost,US$2010/kW,Energy
+OM Cost,US$2010/kW/yr,Energy
+Price,US$2010/GJ,Energy
+Resource,EJ/yr,Energy
+Resource,Mt Fe-eq,Energy
+Trade,kt U/yr,Energy
+Transport,million vehicles,Transport
+Fertilizer Use,Tg N/yr,Fertilizer
+Fertilizer Use,Tg P/yr,Fertilizer
+Water Consumption,km3/yr,Water
+Water Withdrawal,km3/yr,Water
+Material recycling,Mt/year,Industry
+Production,Mt/year,Industry
+Ecotoxicity,"Mt 1,4-DCB-eq",Environment
+Eutrophication,Tg N-eq/yr,Environment
+Human Toxicity,"Mt 1,4-DCB-eq",Environment
+Premature Deaths,million,Environment
+GDP,billion US$2010/yr,Macroeconomic
+Capital Formation,billion US$2010/yr,Macroeconomic
+Capital Stock,billion US$2010/yr,Macroeconomic
+Investment,billion US$2010/yr,Macroeconomic
+Consumption,billion US$2010/yr,Macroeconomic
+Export,billion US$2010/yr,Macroeconomic
+Import,billion US$2010/yr,Macroeconomic
+Value Added,billion US$2010/yr,Macroeconomic
+Trade,billion US$2010/yr,Macroeconomic
+Expenditure,billion US$2010/yr,Macroeconomic
+Expenditure,million Ha/yr,Macroeconomic
+Expenditure,EJ,Macroeconomic
+Discount rate,%,Macroeconomic
+Interest Rate,%,Macroeconomic
+Unemployment,%,Macroeconomic
+Unemployment,million,Macroeconomic
+Employment,million,Macroeconomic
+Policy Cost,billion US$2010/yr,Macroeconomic
+Subsidies,billion US$2010/yr,Macroeconomic
+Population,million,Macroeconomic
+Price,US$2010/t CO2,Macroeconomic
+Agricultural Demand,million t DM/yr,AgLU
+Agricultural Production,million t DM/yr,AgLU
+Forestry Demand,million m3/yr,AgLU
+Forestry Production,million m3/yr,AgLU
+Food Demand,kcal/cap/day,AgLU
+Food Energy Supply,EJ/yr,AgLU
+Land Cover,million ha,AgLU
+Yield,t DM/ha/yr,AgLU
+Price,Index (2010 = 1),AgLU
