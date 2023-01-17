@@ -261,7 +261,7 @@ AR6Land %>% filter(year %in% c(2020, 2100)) %>%
               mutate(Variable = gsub("Land Cover\\|", "", Variable)) %>%
               group_by(Variable, Category) %>%
               summarise(n = n(), .groups = "drop") %>%
-              mutate(h = if_else(grepl("Energy|Pasture", Variable), 1300, 1300)),
+              mutate(h = if_else(grepl("Energy|Pasture", Variable), 1450, 1450)),
             aes(x = Category, y = h, label = n, color = Variable, group = Variable),
             hjust = 0.5, size = 4, fontface = 4,
             position=position_dodge(width = .9)
@@ -277,7 +277,7 @@ AR6Land %>% filter(year %in% c(2020, 2100)) %>%
 
 AR6_vetted %>% filter(year %in% c(2100)) %>%
   filter(Category %in% paste0("C", 1:8)) %>%
-  filter(Variable %in% c("Temperature|Global Mean",
+  filter(Variable %in% c("AR6 climate diagnostics|Surface Temperature (GSAT)|MAGICCv7.5.3|50.0th Percentile",
                          "Emissions|CO2",
                          "GDP|PPP",
                          "Food Demand",
@@ -292,7 +292,7 @@ AR6tempEms  %>%
   mutate(value = if_else(Variable == "GDP|PPP", value / 1000, value),
          value = if_else(Variable == "Emissions|CO2", value / 1000, value)) %>%
   mutate(Variable = factor(Variable,
-                           levels = c("Temperature|Global Mean",
+                           levels = c("AR6 climate diagnostics|Surface Temperature (GSAT)|MAGICCv7.5.3|50.0th Percentile",
                                       "Emissions|CO2",
                                       "Price|Carbon",
                                       "Food Demand",
@@ -338,7 +338,7 @@ Fig2 %>% Write_png("Fig2", h = 1700, w = 3800, r = 200)
 #                          "Emissions|CO2|AFOLU" ))
 # # Check variable
 # AR6_vetted %>% distinct(Variable) %>%
-#   filter(grepl("Land", Variable, ignore.case = T) == T) %>% pull
+#   filter(grepl("Temp", Variable, ignore.case = T) == T) %>% pull
 
 
 
